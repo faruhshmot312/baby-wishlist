@@ -436,7 +436,8 @@ function render() {
     card.className = 'card' + (r ? ' reserved' : '');
     card.innerHTML = `
       <div class="card-img">
-        ${item.img ? `<img src="${item.img}" alt="${item.name}">` : item.emoji}
+        <img src="photos/${item.id}.jpg" alt="${item.name}" onerror="this.style.display='none';this.nextElementSibling.style.fontSize='72px';this.nextElementSibling.textContent='${item.emoji}'">
+        <span class="emoji-fallback"></span>
         <div class="reserved-badge">✓ Забронировано${r ? ` (${r})` : ''}</div>
       </div>
       <div class="card-body">
